@@ -1,3 +1,5 @@
+import { checkURL } from './checkURL'
+
 const post = async (url = '', data = {}) => {
     const response = await fetch(url, {
         method: 'POST',
@@ -17,7 +19,7 @@ const post = async (url = '', data = {}) => {
 
 export const handleSubmit = async () => {
     const url = document.getElementById('article-url').value
-    if (isValidURL(url)) {
+    if (checkURL(url)) {
         document.getElementById("please-wait").style.display = "block";
         post('http://localhost:8081/fetch', { url }).then((data) => {
             showData(data)
@@ -35,15 +37,4 @@ function showData(data) {
     document.getElementById('score-tag').innerHTML = data.score_tag
     document.getElementById('irony').innerHTML = data.irony
     document.getElementById('text').innerHTML = data.sentence_list[0].text
-}
-
-
-function isValidURL(url) {
-  var pattern = new RegExp('^(https?:\\/\\/)?'+ 
-    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ 
-    '((\\d{1,3}\\.){3}\\d{1,3}))'+ 
-    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ 
-    '(\\?[;&a-z\\d%_.~+=-]*)?'+ 
-    '(\\#[-a-z\\d_]*)?$','i'); 
-  return !!pattern.test(url);
 }

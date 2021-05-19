@@ -1,7 +1,7 @@
-##Note
+## Note
 This project doesn't belong by anyway to udacity is self.
 
-##Introduction to Natural Language Processing
+## Introduction to Natural Language Processing
 
 NLP is a subset of AI that provides computers ability to process or interact with natural human speech. In NLP, machine learning and deep learning are used on massive amounts of data to obtain the rules and understanding of nuance in human speech.
 
