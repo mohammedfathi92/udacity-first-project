@@ -21,6 +21,7 @@ export const handleSubmit = async () => {
     const url = document.getElementById('article-url').value
     if (checkURL(url)) {
         document.getElementById("please-wait").style.display = "block";
+        document.getElementById("result").style.display = "none";
         post('http://localhost:8081/fetch', { url }).then((data) => {
             showData(data)
         })
