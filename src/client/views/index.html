@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Sentiment Analyzer</title>
+</head>    
+    <body>
+        <main>
+            <div class="container">
+                <section>
+                    <form id="main-form">
+                        <h1 class="text-center main-title">Sentiment Analyzer</h1>
+                        <h4 class="text-center second-title mb-5">Enter A URL Of An Article / A Blog To Discover Its Sentiment.</h4>
+                        <div class="input-group mb-5">
+                            <input type="text" class="form-control" id="article-url" placeholder="Type url here ... ">
+                            <button class="btn-submit btn btn-danger" id="basic-addon3">Submit</button>
+                        </div>
+                    </form>
+                </section>
+
+                <p class="text-center" id="please-wait" style="display: none;"> Please wait ...</p>
+
+                <section class="mt-3" style="display: none;" id="result">
+                    <h5 class="text-center">Results</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <div><strong>Agreement: </strong><span id="agreement"></span></div>
+                        </li>
+                        <li class="list-group-item">
+                            <div><strong>Subjectivity: </strong><span id="subjectivity"></span></div>
+                        </li>
+                        <li class="list-group-item">
+                            <div><strong>Confidence: </strong><span id="confidence"></span></div>
+                        </li>
+                        <li class="list-group-item">
+                            <div><strong>Text: </strong><span id="text"></span></div>
+                        </li>
+                        <li class="list-group-item">
+                            <div><strong>Irony: </strong><span id="irony"></span></div>
+                        </li>
+                        <li class="list-group-item">
+                            <div><strong>Score Tag: </strong><span id="score-tag"></span></div>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </main>
+        <script>
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js')
+                })
+            }
+        </script>
+</body>
+</html>
